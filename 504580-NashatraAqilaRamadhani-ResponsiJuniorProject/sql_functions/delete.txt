@@ -1,0 +1,22 @@
+﻿---delete function---
+create or replace function st_delete(
+	_id character varying,
+	_name character varying,
+	_id_departemen integer
+	
+)
+returns int 
+AS 
+'
+begin
+	DELETE FROM public.karyawan
+	WHERE id=_id;	
+	if found then 
+		return 1;
+	else 
+		return 0;
+	end if;
+end
+'
+
+language plpgsql;

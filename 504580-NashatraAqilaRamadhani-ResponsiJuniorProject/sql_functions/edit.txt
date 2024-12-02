@@ -1,0 +1,24 @@
+﻿---edit function---
+create or replace function st_edit(
+	_id character varying,
+	_name character varying,
+	_id_departemen integer
+	
+)
+returns int 
+AS 
+'
+begin
+	update public.karyawan SET
+		name = _name,
+		id_departemen = _id_departemen
+	where id = _id;
+	if found then 
+		return 1;
+	else 
+		return 0;
+	end if;
+end
+'
+
+language plpgsql;
